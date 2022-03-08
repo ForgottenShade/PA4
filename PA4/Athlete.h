@@ -6,6 +6,10 @@ private:
 	int Weight;
 
 public:
-	Athlete(string name);
+	Athlete(int number, string type);
 	void PrintInfo();
+	void SetHeight(int);
+	void SetWeight(int); 
+	int GetHeight();
+	int GetWeight();
 };

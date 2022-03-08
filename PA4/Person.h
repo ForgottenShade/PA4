@@ -1,4 +1,5 @@
 #include <iostream>
+#include<string>
 
 using namespace std;
 
@@ -8,6 +9,11 @@ private:
     int Age;
 
 public:
-    Person();
+    Person(int number, string type);
     void PrintInfo();
+    void SetName(string);
+    void SetAge(int);
+    string GetName();
+    int GetAge();
 };
+

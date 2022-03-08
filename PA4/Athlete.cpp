@@ -1,19 +1,20 @@
+#include <stdlib.h> 
 #include "Person.h"
 
 using namespace std;
 
+
 class Athlete:public Person {
 private:
+    string Cat;
     int Height;
     int Weight;
+
 public:
-    Athlete(string name, int age, char sex, int height, int weight):Person(name, age, sex){
-        Height = height;
-        Weight = weight; 
-    }
-    Athlete(string name, int age, char sex):Person(name, age, sex){
-        Height = NULL;
-        Weight = NULL;
+    Athlete(string cat) :Person() {
+        Cat = cat;
+        Height = rand() % 70 + 140;
+        Weight = rand() % 50 + 100;
     }
 
     void PrintInfo(){

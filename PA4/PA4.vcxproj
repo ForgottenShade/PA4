@@ -141,9 +141,11 @@
   <ItemGroup>
     <ClCompile Include="Athlete.cpp" />
     <ClCompile Include="Coach.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Athlete.h" />
     <ClInclude Include="Person.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

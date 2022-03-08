@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h> 
 
 using namespace std; 
 
@@ -6,20 +7,17 @@ class Person {
 private:
     string Name;
     int Age; 
-    char Sex; 
 public:
-    Person(string name, int age, char sex);
+    Person();
     void PrintInfo();
 };
 
-Person::Person(string name, int age, char sex){
-        Name = name;
-        Age = age;
-        Sex = sex;
+Person::Person(){
+        Name = "";
+        Age = rand;
 }
 
 void Person::PrintInfo(){
         cout << "Name: " << Name << endl;
         cout << "Age: " << Age << endl;
-        cout << "Sex: " << Sex << endl;
 }

@@ -8,8 +8,9 @@ private:
 public:
 	Athlete(int number, string type);
 	void PrintInfo();
-	void SetHeight(int);
-	void SetWeight(int); 
 	int GetHeight();
 	int GetWeight();
+	void SetHeight(int);
+	void SetWeight(int); 
+	
 };

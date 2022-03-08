@@ -27,6 +27,14 @@ void Person::PrintInfo(){
         cout << "Age: " << Age << endl;
 }
 
+string Person::GetName(){
+    return Name;
+}
+
+int Person::GetAge(){
+    return Age;
+}
+
 void Person::SetName(string name){
     Name = name;
 }
@@ -35,10 +43,3 @@ void Person::SetAge(int age){
     Age = age;
 }
 
-string Person::GetName(){
-    return Name;
-}
-
-int Person::GetAge(){
-    return Age;
-}

@@ -7,4 +7,6 @@ class RugbyPlayer: public Athlete{
 private:
     string FieldPosition;
     Team TeamName;
+public:
+    RugbyPlayer(int number, string type);
 };

@@ -1,5 +1,9 @@
 #include "Athlete.h"
 #include<vector>
+#include<tuple>
+#include<string>
+#include<iostream>
+
 
 using namespace std;
 
@@ -9,17 +13,21 @@ private:
     vector<tuple<string, int>> BestTimes;
     vector<tuple<string, int>> CompetitionPlaces;
 public:
-    Swimmer(int number, string type) :Athlete(number, type){}
+    Swimmer(int number, string athleteType);
     void EditSwimmer();
     void SetName();
     tuple<string, int> GetBestTime(int i);
     void AddTime(string discipline, int time);
-    void Swimmer::SetDiscipline(int index, string newDiscipline);
-    void Swimmer::SetTime(int index, int newTime);
+    void SetDiscipline(int index, string newDiscipline);
+    void SetTime(int index, int newTime);
+    string GetName();
 };
+Swimmer::Swimmer(int number, string athleteType):Athlete(number, athleteType){
 
-Swimmer::Swimmer(int number, string type) : Athlete(number, type){
-  
+}
+
+string Swimmer::GetName(){
+    return Athlete::GetName();
 }
 
 tuple<string, int> Swimmer::GetBestTime(int i) {
@@ -33,7 +41,8 @@ void Swimmer::AddTime(string discipline, int time){
 
 void Swimmer::SetDiscipline(int index, string newDiscipline) {
     tuple<string, int> temp = BestTimes.at(index);
-    BestTimes.at(index) = tuple<string, int> (newDiscipline, get<1>(temp));
+    tuple<string, int> newItem (newDiscipline, get<1>(temp));
+    BestTimes.at(index) = newItem;
 }
 
 void Swimmer::SetTime(int index, int newTime) {
@@ -46,8 +55,8 @@ void Swimmer::EditSwimmer(){
     while(true){
         cout << "Input the corresponding number." << endl;
         cout << "--------------------" << endl;
-        cout << "1. Name -- " << Person::GetName() << endl;
-        cout << "2. Age -- " << Person::GetAge() << endl;
+        cout << "1. Name -- " << Athlete::GetName() << endl;
+        cout << "2. Age -- " << Athlete::GetAge() << endl;
         cout << "3. Height -- " << Athlete::GetHeight() << endl;
         cout << "4. Weight -- " << Athlete::GetWeight() << endl;
         cout << "5. Best Times" << endl; 
@@ -60,7 +69,7 @@ void Swimmer::EditSwimmer(){
             string newName;
             cout << "Enter new name for swimmer" << endl;
             cin >> newName;
-            Person::SetName(newName); 
+            Athlete::SetName(newName); 
 
             // set_name
 				
@@ -68,7 +77,7 @@ void Swimmer::EditSwimmer(){
             int newAge;
             cout << "Enter new age for swimmer" << endl;
             cin >> newAge;
-            Person::SetAge(newAge); 
+            Athlete::SetAge(newAge); 
             
             // set_age
 				
@@ -76,14 +85,14 @@ void Swimmer::EditSwimmer(){
             int newHeight;
             cout << "Enter new height for swimmer" << endl;
             cin >> newHeight;
-            Person::SetAge(newHeight); 
+            Athlete::SetHeight(newHeight); 
             
 				
 		} else if (atoi(userInput.c_str()) == 4) {
 			int newWeight;
             cout << "Enter new weight for swimmer" << endl;
             cin >> newWeight;
-            Person::SetAge(newWeight); 
+            Athlete::SetWeight(newWeight); 
             
 		} else if (atoi(userInput.c_str()) == 5) {
             // display best times 
@@ -91,7 +100,7 @@ void Swimmer::EditSwimmer(){
             cout << "--------------------" << endl;
             cout << "Discipline: Best time" << endl;
             for (int i = 0; i < BestTimes.size(); i++){
-                tuple BestTime = Swimmer::GetBestTime(i);
+                tuple<string, int> BestTime = Swimmer::GetBestTime(i);
                 cout << i+1 << ". " << get<0>(BestTime) << ": " << get<1>(BestTime) << endl;
             }
             cout << "--------------------" << endl;

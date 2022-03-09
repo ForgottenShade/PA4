@@ -1,12 +1,12 @@
-#include "Athlete.h"
-#include "Team.h"
+#include<string>
 
 using namespace std; 
 
-class Coach: public Athlete{
+class Coach{
 private:
     string TeamName;
     // Date DateStartedWithTeam;
 public:
-    Coach(int number, string type) : Athlete(number, type){}
+    Coach(int, string);
+    string GetName();
 };

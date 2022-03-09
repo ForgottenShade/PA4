@@ -9,7 +9,7 @@ private:
     int Age;
 
 public:
-    Person(int number, string type);
+    Person(int, string);
     void PrintInfo();
     void SetName(string);
     void SetAge(int);

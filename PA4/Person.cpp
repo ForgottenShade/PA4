@@ -9,7 +9,7 @@ private:
     string Name;
     int Age; 
 public:
-    Person(int number, string type);
+    Person(int number, string athleteType);
     void PrintInfo();
     void SetName(string name);
     void SetAge(int age);
@@ -17,8 +17,8 @@ public:
     int GetAge(); 
 };
 
-Person::Person(int number, string type){
-        Name = type + " " + to_string(number);
+Person::Person(int number, string athleteType){
+        Name = athleteType + " " + to_string(number);
         Age = rand() % 18 + 22;
 }
 

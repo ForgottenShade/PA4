@@ -1,12 +1,13 @@
-#include "Athlete.h"
+
 #include "Team.h"
+#include<string>
 
 using namespace std;
 
-class RugbyPlayer: public Athlete{
+class RugbyPlayer{
 private:
     string FieldPosition;
     Team TeamName;
 public:
-    RugbyPlayer(int number, string type);
+    RugbyPlayer(int number, string athleteType);
 };

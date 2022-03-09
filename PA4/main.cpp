@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include<tuple>
 
 #include "Swimmer.h"
 #include "RugbyPlayer.h"
@@ -38,7 +39,7 @@ int main() {
 		if (mainMenu) {
 			if (atoi(userInput.c_str()) == 1) {
 				//athlete creation happens here
-				cout << "Enter the numnber for the type of athlete to be created" << endl;
+				cout << "Enter the numnber for the athleteType of athlete to be created" << endl;
 				cout << "--------------------" << endl;
 				cout << "1. Swimmer" << endl;
 				cout << "2. Rugby Player" << endl;
@@ -49,7 +50,7 @@ int main() {
 					// create swimmer
 					// get length of Player list + 1 for name 
 					int number = swimmerList.size();
-					Swimmer newSwimmer = Swimmer::Swimmer(number + 1, "Swimmer");
+					Swimmer newSwimmer = Swimmer(number + 1, "Swimmer");
 					// push back
 					swimmerList.push_back(newSwimmer);
 				} else if (atoi(userInput.c_str()) == 2){
@@ -70,7 +71,7 @@ int main() {
 			}
 			else if (atoi(userInput.c_str()) == 4) {
 				// Manage athletes happens here
-				cout << "Enter the numnber for the type of athletes to be managed" << endl;
+				cout << "Enter the numnber for the athleteType of athletes to be managed" << endl;
 				cout << "--------------------" << endl;
 				cout << "1. Swimmers" << endl;
 				cout << "2. Rugby Players" << endl;

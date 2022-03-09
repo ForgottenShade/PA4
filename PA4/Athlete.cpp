@@ -1,5 +1,6 @@
 #include <stdlib.h> 
 #include "Person.h"
+#include<string>
 
 using namespace std;
 
@@ -10,7 +11,7 @@ private:
     int Weight;
 
 public:
-    Athlete(int number, string type) :Person(number, type) {}
+    Athlete(int number, string athleteType);
 
     void PrintInfo(){
         Person::PrintInfo();
@@ -20,13 +21,34 @@ public:
     
     void SetHeight(int height);
     void SetWeight(int weight);
+    void SetName(string name);
+    void SetAge(int age);
+    string GetName();
+    int GetAge();
     int GetHeight();
     int GetWeight();
     
 };
-Athlete::Athlete(int number, string type):Person(number, type){
+Athlete::Athlete(int number, string athleteType):Person(number,athleteType){
+    //if athleteType == Swimmer
     Height = rand() % 70 + 140;
     Weight = rand() % 50 + 100;
+}
+
+string Athlete::GetName(){
+    return Person::GetName();
+}
+
+int Athlete::GetAge(){
+    return Person::GetAge();
+}
+
+void Athlete::SetAge(int age){
+    Person::SetAge(age);
+}
+
+void Athlete::SetName(string name){
+    Person::SetName(name);
 }
 
 void Athlete::SetHeight(int height){

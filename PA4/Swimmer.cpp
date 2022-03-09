@@ -14,6 +14,7 @@ private:
     vector<tuple<string, int>> CompetitionPlaces;
 public:
     Swimmer(int number, string athleteType);
+    Swimmer();
     void EditSwimmer();
     void SetName();
     tuple<string, int> GetBestTime(int i);
@@ -25,6 +26,8 @@ public:
 Swimmer::Swimmer(int number, string athleteType):Athlete(number, athleteType){
 
 }
+
+Swimmer::Swimmer():Athlete() {}
 
 string Swimmer::GetName(){
     return Athlete::GetName();

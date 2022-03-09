@@ -10,6 +10,7 @@ private:
 
 public:
     Person(int, string);
+    Person();
     void PrintInfo();
     void SetName(string);
     void SetAge(int);

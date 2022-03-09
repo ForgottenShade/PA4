@@ -10,6 +10,7 @@ private:
     int Age; 
 public:
     Person(int number, string athleteType);
+    Person();
     void PrintInfo();
     void SetName(string name);
     void SetAge(int age);
@@ -21,6 +22,8 @@ Person::Person(int number, string athleteType){
         Name = athleteType + " " + to_string(number);
         Age = rand() % 18 + 22;
 }
+
+Person::Person(){};
 
 void Person::PrintInfo(){
         cout << "Name: " << Name << endl;

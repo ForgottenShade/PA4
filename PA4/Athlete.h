@@ -1,14 +1,15 @@
 #include<string>
-
+#include"Person.h"
 using namespace std;
 
-class Athlete{
+class Athlete:public Person{
 private:
 	int Height;
 	int Weight;
 
 public:
 	Athlete(int, string);
+	Athlete();
 	void PrintInfo();
 	int GetHeight();
 	int GetWeight();

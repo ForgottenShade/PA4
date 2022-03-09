@@ -50,6 +50,7 @@ int main() {
 					// create swimmer
 					// get length of Player list + 1 for name 
 					int number = swimmerList.size();
+					swimmerList.resize(number + 1);
 					Swimmer newSwimmer = Swimmer(number + 1, "Swimmer");
 					// push back
 					swimmerList.push_back(newSwimmer);

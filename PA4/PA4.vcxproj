@@ -143,10 +143,17 @@
     <ClCompile Include="Coach.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Person.cpp" />
+    <ClCompile Include="RugbyPlayer.cpp" />
+    <ClCompile Include="Swimmer.cpp" />
+    <ClCompile Include="Team.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Athlete.h" />
+    <ClInclude Include="Coach.h" />
     <ClInclude Include="Person.h" />
+    <ClInclude Include="RugbyPlayer.h" />
+    <ClInclude Include="Swimmer.h" />
+    <ClInclude Include="Team.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

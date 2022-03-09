@@ -12,6 +12,7 @@ private:
 
 public:
     Athlete(int number, string athleteType);
+    Athlete();
 
     void PrintInfo(){
         Person::PrintInfo();
@@ -34,6 +35,8 @@ Athlete::Athlete(int number, string athleteType):Person(number,athleteType){
     Height = rand() % 70 + 140;
     Weight = rand() % 50 + 100;
 }
+
+Athlete::Athlete():Person() {}
 
 string Athlete::GetName(){
     return Person::GetName();

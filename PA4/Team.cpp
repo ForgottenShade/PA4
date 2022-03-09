@@ -88,10 +88,13 @@ void Team::EditTeam(vector<Athlete> globalAthletes, vector<Coach> globalCoaches)
                 cout << "--------------------" << endl;
                 cout << "1. Exit" << endl;
                 cout << "--------------------" << endl;
-                for (int i = 0; i < globalAthletes.size(); i++) {
-                    cout << globalAthletes[i].GetName() << endl;
+                for (int i = 0; i < AthleteList.size(); i++) {
+                    cout << AthleteList[i].GetName() << endl;
                 }
-                cout << "--------------------" << endl << endl;
+                cout << "--------------------" << endl;
+                cout << "Type 'Exit' to Exit" << endl;
+                cout << "--------------------" << endl;
+                cin >> userInput;
             }
             else if (atoi(userInput.c_str()) == 2) {
                 cout << "Select an athlete to add" << endl;
@@ -120,6 +123,7 @@ void Team::EditTeam(vector<Athlete> globalAthletes, vector<Coach> globalCoaches)
 
                 Athlete athleteToRemove = athleteList[atoi(userInput.c_str()) - 1];
                 athleteList.erase(athleteList.begin() + atoi(userInput.c_str()) - 1);
+                Team::SetAthletes(athleteList);
             }
         }
         else if (atoi(userInput.c_str()) == 5) {

@@ -101,64 +101,59 @@ int main() {
 
 				cin >> userInput;
 				if (atoi(userInput.c_str()) == 1) {
-					cout << "Enter a type for the athlete (ex. Swimmer, Rugby Player): " << endl;
-					cin >> userInput;
-
-					int number = GetAthleteNumber(userInput) + 1;
-					Athlete newAthlete = Athlete(number, userInput);
-					newAthlete.EditAthlete();
-					//athleteList.resize(athleteList.size() + 1);
-					athleteList.push_back(newAthlete);
+					Team newTeam = Team(teamList.size() + 1);
+					newTeam.EditTeam(athleteList, coachList);
+					teamList.push_back(newTeam);
 				}
 				else if (atoi(userInput.c_str()) == 2) {
-					cout << "Enter a type for the athlete (ex. Swimmer, Rugby Player): " << endl;
-					cin >> userInput;
-
-					int number = GetAthleteNumber(userInput) + 1;
-					Athlete newAthlete = Athlete(number, userInput);
-					//athleteList.resize(athleteList.size() + 1);
-					athleteList.push_back(newAthlete);
+					Team newTeam = Team(teamList.size()+1);
+					teamList.push_back(newTeam);
 				}
 			}
 			else if (atoi(userInput.c_str()) == 4) {
-				cout << "Input the number of the swimmer you want to manage." << endl;
+				cout << "Input the number of the athlete you want to manage." << endl;
 				cout << "--------------------" << endl;
 				for (int i = 0; i < athleteList.size(); i++) {
 					cout << i + 1 << ". " << athleteList[i].GetName() << endl;
 				}
 				cout << "--------------------" << endl;
+				cout << "Type 'Exit' to Exit" << endl;
+				cout << "--------------------" << endl;
 				cin >> userInput;
+
+				if (strcmp(userInput.c_str(), "Exit") != 0) {
+					athleteList[atoi(userInput.c_str()) - 1].EditAthlete();
+				}
 			}
 			else if (atoi(userInput.c_str()) == 5) {
-				//Coach shit
-				// manage swimmer
-				// get length of Player list + 1 for name 
-				// push back
-				cout << "Input the number of the Coach you want to manage." << endl;
+				cout << "Input the number of the coach you want to manage." << endl;
 				cout << "--------------------" << endl;
 				for (int i = 0; i < coachList.size(); i++){
 					cout << i+1 << ". " << coachList[i].GetName() << endl;
 				}
 				cout << "--------------------" << endl;
+				cout << "Type 'Exit' to Exit" << endl;
+				cout << "--------------------" << endl;
 				cin >> userInput;
-				// Print info about swimmer
-				// Edit swimmer[i]()
-
+				
+				if (strcmp(userInput.c_str(), "Exit") != 0) {
+					coachList[atoi(userInput.c_str()) - 1].EditCoach();
+				}
 			}
 			else if (atoi(userInput.c_str()) == 6) {
-				//Teams shit
-				// manage swimmer
-				// get length of Player list + 1 for name 
-				// push back
 				cout << "Input the number of the Team you want to manage." << endl;
 				cout << "--------------------" << endl;
 				for (int i = 0; i < teamList.size(); i++){
 					cout << i+1 << ". " << teamList[i].GetName() << endl;
 				}
 				cout << "--------------------" << endl;
+				cout << "Type 'Exit' to Exit" << endl;
+				cout << "--------------------" << endl;
 				cin >> userInput;
-				// Print info about swimmer
-				// Edit swimmer[i]()
+				
+				if (strcmp(userInput.c_str(), "Exit") != 0) {
+					teamList[atoi(userInput.c_str()) - 1].EditTeam(athleteList, coachList);
+				}
 			}
 		}
 	}

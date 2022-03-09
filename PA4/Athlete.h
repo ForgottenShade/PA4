@@ -1,5 +1,9 @@
+#ifndef _ATHLETE_
+#define _ATHLETE_
+
 #include<string>
 #include"Person.h"
+
 using namespace std;
 
 class Athlete:public Person{
@@ -23,5 +27,7 @@ public:
 	void SetHeight(int);
 	void SetWeight(int); 
 
-	friend bool operator== (const Athlete&, const Athlete&);
+	//friend bool operator== (const Athlete&, const Athlete&);
 };
+
+#endif

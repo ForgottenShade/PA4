@@ -2,6 +2,7 @@
 #include<string>
 #include<vector>
 #include<tuple>
+#include<cstring>
 
 #include"Athlete.h"
 #include"Coach.h"

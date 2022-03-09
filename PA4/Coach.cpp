@@ -1,5 +1,5 @@
 #include "Person.h"
-#include "Team.h"
+
 #include<string>
 
 using namespace std;
@@ -21,10 +21,10 @@ public:
 };
 
 Coach::Coach(int number):Person() {
-    Person::SetName("Coach " + to_string(number));
+    Coach::SetName("Coach " + to_string(number));
 }
 
-Coach::Coach():Person(){}
+Coach::Coach():Person() {}
 
 void Coach::EditCoach() {
     string userInput;

@@ -1,6 +1,10 @@
+#ifndef _TEAM_
+#define _TEAM_
+
 #include<vector>
 #include<string>
 #include<tuple>
+
 #include"Athlete.h"
 #include"Coach.h"
 
@@ -29,3 +33,4 @@ public:
     void SetAthletes(vector<Athlete>);
 };
 
+#endif

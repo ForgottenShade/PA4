@@ -18,7 +18,7 @@ public:
     string GetName();
     int GetAge(); 
 
-    friend bool operator== (const Person&, const Person&);
+    //friend bool operator== (const Person&, const Person&);
 };
 
 Person::Person(){
@@ -47,10 +47,10 @@ void Person::SetAge(int age){
     Age = age;
 }
 
-bool operator== (const Person& person1, const Person& person2) {
-    if (person1.Name == person2.Name && person1.Age == person2.Age) {
-        return true;
-    }
-    return false;
-}
+// bool operator== (const Person& person1, const Person& person2) {
+//     if (person1.Name == person2.Name && person1.Age == person2.Age) {
+//         return true;
+//     }
+//     return false;
+// }
 

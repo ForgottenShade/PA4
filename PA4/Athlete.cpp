@@ -31,8 +31,9 @@ public:
     int GetHeight();
     int GetWeight();
     
-    friend bool operator== (const Athlete&, const Athlete&);
+    //friend bool operator== (const Athlete&, const Athlete&);
 };
+
 Athlete::Athlete(int number, string athleteType):Person(){
     Height = rand() % 70 + 140;
     Weight = rand() % 50 + 100;
@@ -115,9 +116,9 @@ int Athlete::GetWeight(){
     return Weight;
 }
 
-bool operator== (const Athlete& athlete1, const Athlete& athlete2) {
-    if (athlete1.Height == athlete2.Height && athlete1.Weight == athlete2.Weight && athlete1 == athlete2) {
-        return true;
-    }
-    return false;
-}
+// bool operator== (const Athlete& athlete1, const Athlete& athlete2) {
+//     if (athlete1.Height == athlete2.Height && athlete1.Weight == athlete2.Weight && athlete1 == athlete2) {
+//         return true;
+//     }
+//     return false;
+// }

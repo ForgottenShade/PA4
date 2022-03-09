@@ -2,6 +2,7 @@
 #include<vector>
 #include<string>
 #include<tuple>
+
 #include"Athlete.h"
 #include"Coach.h"
 
@@ -34,7 +35,7 @@ public:
 Team::Team(int number){
     TeamName = "Team " + to_string(number);
     Location = "Location not set";
-    //TeamCoach = Coach();
+    TeamCoach = Coach();
 }
 
 Team::Team(){}

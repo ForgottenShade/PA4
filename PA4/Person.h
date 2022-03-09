@@ -1,3 +1,6 @@
+#ifndef _PERSON_
+#define _PERSON_
+
 #include <iostream>
 #include<string>
 
@@ -18,6 +21,7 @@ public:
     string GetName();
     int GetAge();
 
-    friend bool operator== (const Person&, const Person&);
+    //friend bool operator== (const Person&, const Person&);
 };
 
+#endif

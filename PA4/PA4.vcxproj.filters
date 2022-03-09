@@ -30,12 +30,6 @@
     <ClCompile Include="Team.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RugbyPlayer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Swimmer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Person.h">
@@ -48,12 +42,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Coach.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RugbyPlayer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Swimmer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

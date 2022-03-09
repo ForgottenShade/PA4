@@ -9,21 +9,22 @@ private:
     string Name;
     int Age; 
 public:
-    Person(int number, string athleteType);
     Person();
+
     void PrintInfo();
     void SetName(string name);
     void SetAge(int age);
+
     string GetName();
     int GetAge(); 
+
+    friend bool operator== (const Person&, const Person&);
 };
 
-Person::Person(int number, string athleteType){
-        Name = athleteType + " " + to_string(number);
+Person::Person(){
+        Name = "";
         Age = rand() % 18 + 22;
 }
-
-Person::Person(){};
 
 void Person::PrintInfo(){
         cout << "Name: " << Name << endl;
@@ -44,5 +45,12 @@ void Person::SetName(string name){
 
 void Person::SetAge(int age){
     Age = age;
+}
+
+bool operator== (const Person& person1, const Person& person2) {
+    if (person1.Name == person2.Name && person1.Age == person2.Age) {
+        return true;
+    }
+    return false;
 }
 

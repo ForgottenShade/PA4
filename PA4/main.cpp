@@ -3,21 +3,29 @@
 #include<vector>
 #include<tuple>
 
-#include "Swimmer.h"
-#include "RugbyPlayer.h"
-#include "Coach.h"
-
+#include"Athlete.h"
+#include"Coach.h"
+#include"Team.h"
 
 using namespace std;
+
+vector<Athlete> athleteList;
+vector<Coach> coachList;
+vector<Team> teamList;
+
+int GetAthleteNumber(string athleteType) {
+	int count= 0;
+	for (int i = 0; i < athleteList.size(); i++) {
+		if (strcmp(athleteList[i].GetName().c_str(), athleteType.c_str()) == 1) {
+			count++;
+		}
+	}
+	return count;
+}
 
 int main() {
 	string userInput;
 	bool mainMenu = true;
-
-	vector<Swimmer> swimmerList;
-	vector<RugbyPlayer> rugbyplayerList;
-	vector<Coach> coachList;
-	vector<Team> teamList;
 	
 
 	while (true) {
@@ -38,69 +46,87 @@ int main() {
 
 		if (mainMenu) {
 			if (atoi(userInput.c_str()) == 1) {
-				//athlete creation happens here
-				cout << "Enter the numnber for the athleteType of athlete to be created" << endl;
+				cout << "How would you like to create the athlete?" << endl;
 				cout << "--------------------" << endl;
-				cout << "1. Swimmer" << endl;
-				cout << "2. Rugby Player" << endl;
+				cout << "1. Manual" << endl;
+				cout << "2. Automatic" << endl;
 				cout << "--------------------" << endl;
+
 				cin >> userInput;
-				if (atoi(userInput.c_str()) == 1){
-					//Swimmer shit
-					// create swimmer
-					// get length of Player list + 1 for name 
-					int number = swimmerList.size();
-					swimmerList.resize(number + 1);
-					Swimmer newSwimmer = Swimmer(number + 1, "Swimmer");
-					// push back
-					swimmerList.push_back(newSwimmer);
-				} else if (atoi(userInput.c_str()) == 2){
-					// Rugby shit
-					// create RugbyPlayer
-					// get length of Player list + 1 for name 
-					// push back
+				if (atoi(userInput.c_str()) == 1) {
+					cout << "Enter a type for the athlete (ex. Swimmer, Rugby Player): " << endl;
+					cin >> userInput;
+
+					int number = GetAthleteNumber(userInput) + 1;
+					Athlete newAthlete = Athlete(number, userInput);
+					newAthlete.EditAthlete();
+					//athleteList.resize(athleteList.size() + 1);
+					athleteList.push_back(newAthlete);
+				}
+				else if (atoi(userInput.c_str()) == 2) {
+					cout << "Enter a type for the athlete (ex. Swimmer, Rugby Player): " << endl;
+					cin >> userInput;
+
+					int number = GetAthleteNumber(userInput) + 1;
+					Athlete newAthlete = Athlete(number, userInput);
+					//athleteList.resize(athleteList.size() + 1);
+					athleteList.push_back(newAthlete);
 				}
 			}
 			else if (atoi(userInput.c_str()) == 2) {
-				//coach creation happens here
-				// push back
-				// figure out coah name
-
-			}
-			else if (atoi(userInput.c_str()) == 3) {
-				//team creation happens here
-			}
-			else if (atoi(userInput.c_str()) == 4) {
-				// Manage athletes happens here
-				cout << "Enter the numnber for the athleteType of athletes to be managed" << endl;
+				cout << "How would you like to create the coach?" << endl;
 				cout << "--------------------" << endl;
-				cout << "1. Swimmers" << endl;
-				cout << "2. Rugby Players" << endl;
+				cout << "1. Manual" << endl;
+				cout << "2. Automatic" << endl;
 				cout << "--------------------" << endl;
 
 				cin >> userInput;
-				if (atoi(userInput.c_str()) == 1){
-					//Swimmer shit
-					// manage swimmer
-					// get length of Player list + 1 for name 
-					// push back
-					cout << "Input the number of the swimmer you want to manage." << endl;
-					cout << "--------------------" << endl;
-					for (int i = 0; i < swimmerList.size(); i++){
-						cout << i+1 << ". " << swimmerList[i].GetName() << endl;
-					}
-					cout << "--------------------" << endl;
-					cin >> userInput;
-					// Print info about swimmer
-					// Edit swimmer[i]()
-
-				} else if (atoi(userInput.c_str()) == 2){
-					// Rugby shit
-					// create RugbyPlayer
-					// get length of Player list + 1 for name 
-					// push back
+				if (atoi(userInput.c_str()) == 1) {
+					Coach newCoach = Coach(coachList.size() + 1);
+					newCoach.EditCoach();
+					coachList.push_back(newCoach);
 				}
+				else if (atoi(userInput.c_str()) == 2) {
+					Coach newCoach = Coach(coachList.size() + 1);
+					coachList.push_back(newCoach);
+				}
+			}
+			else if (atoi(userInput.c_str()) == 3) {
+				cout << "How would you like to create the team?" << endl;
+				cout << "--------------------" << endl;
+				cout << "1. Manual" << endl;
+				cout << "2. Automatic" << endl;
+				cout << "--------------------" << endl;
 
+				cin >> userInput;
+				if (atoi(userInput.c_str()) == 1) {
+					cout << "Enter a type for the athlete (ex. Swimmer, Rugby Player): " << endl;
+					cin >> userInput;
+
+					int number = GetAthleteNumber(userInput) + 1;
+					Athlete newAthlete = Athlete(number, userInput);
+					newAthlete.EditAthlete();
+					//athleteList.resize(athleteList.size() + 1);
+					athleteList.push_back(newAthlete);
+				}
+				else if (atoi(userInput.c_str()) == 2) {
+					cout << "Enter a type for the athlete (ex. Swimmer, Rugby Player): " << endl;
+					cin >> userInput;
+
+					int number = GetAthleteNumber(userInput) + 1;
+					Athlete newAthlete = Athlete(number, userInput);
+					//athleteList.resize(athleteList.size() + 1);
+					athleteList.push_back(newAthlete);
+				}
+			}
+			else if (atoi(userInput.c_str()) == 4) {
+				cout << "Input the number of the swimmer you want to manage." << endl;
+				cout << "--------------------" << endl;
+				for (int i = 0; i < athleteList.size(); i++) {
+					cout << i + 1 << ". " << athleteList[i].GetName() << endl;
+				}
+				cout << "--------------------" << endl;
+				cin >> userInput;
 			}
 			else if (atoi(userInput.c_str()) == 5) {
 				//Coach shit
@@ -123,7 +149,7 @@ int main() {
 				// manage swimmer
 				// get length of Player list + 1 for name 
 				// push back
-				cout << "Input the number of the Coach you want to manage." << endl;
+				cout << "Input the number of the Team you want to manage." << endl;
 				cout << "--------------------" << endl;
 				for (int i = 0; i < teamList.size(); i++){
 					cout << i+1 << ". " << teamList[i].GetName() << endl;

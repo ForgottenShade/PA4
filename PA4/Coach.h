@@ -7,6 +7,11 @@ private:
     string TeamName;
     // Date DateStartedWithTeam;
 public:
-    Coach(int, string);
+    Coach(int);
+    Coach();
+    void EditCoach();
     string GetName();
+    int GetAge();
+    void SetName(string);
+    void SetAge(int);
 };

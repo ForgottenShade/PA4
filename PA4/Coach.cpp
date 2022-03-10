@@ -8,7 +8,6 @@ using namespace std;
 class Coach:public Person {
 private: 
     string TeamName;
-    // Date DateStartedWithTeam;
 public:
     Coach(int number);
     Coach();
@@ -34,8 +33,9 @@ void Coach::EditCoach() {
         cout << "--------------------" << endl;
         cout << "1. Name -- " << Coach::GetName() << endl;
         cout << "2. Age -- " << Coach::GetAge() << endl;
-        cout << "3. Exit Coach Configuration" << endl;
-        cout << "--------------------" << endl << endl;
+        cout << "--------------------" << endl;
+        cout << "Type 'exit' to Exit" << endl;
+        cout << "--------------------" << endl;
         cin >> userInput;
 
         if (atoi(userInput.c_str()) == 1) {
@@ -48,7 +48,7 @@ void Coach::EditCoach() {
             cin >> userInput;
             Coach::SetAge(atoi(userInput.c_str()));
         }
-        else if (atoi(userInput.c_str()) == 3) {
+        else if (strcmp(userInput.c_str(), "exit") == 1) {
             break;
         }
     }

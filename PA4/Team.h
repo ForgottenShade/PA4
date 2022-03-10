@@ -21,6 +21,7 @@ public:
     Team(int name);
     Team();
     void EditTeam(vector<Athlete>, vector<Coach>);
+    void PrintInfo();
 
     string GetName();
     string GetLocation();

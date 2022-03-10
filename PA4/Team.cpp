@@ -19,6 +19,7 @@ public:
     Team(int number);
     Team();
     void EditTeam(vector<Athlete>, vector<Coach>);
+    void PrintInfo();
 
     string GetName();
     string GetLocation();
@@ -81,7 +82,9 @@ void Team::EditTeam(vector<Athlete> globalAthletes, vector<Coach> globalCoaches)
             cout << "1. Show athletes" << endl;
             cout << "2. Add athletes" << endl;
             cout << "3. Remove athletes" << endl;
-            cout << "--------------------" << endl << endl;
+            cout << "--------------------" << endl;
+            cout << "Type 'exit' to Exit" << endl;
+            cout << "--------------------" << endl;
             cin >> userInput;
 
             if (atoi(userInput.c_str()) == 1) {
@@ -92,7 +95,7 @@ void Team::EditTeam(vector<Athlete> globalAthletes, vector<Coach> globalCoaches)
                     cout << AthleteList[i].GetName() << endl;
                 }
                 cout << "--------------------" << endl;
-                cout << "Type 'Exit' to Exit" << endl;
+                cout << "Type 'exit' to Exit" << endl;
                 cout << "--------------------" << endl;
                 cin >> userInput;
             }
@@ -126,10 +129,28 @@ void Team::EditTeam(vector<Athlete> globalAthletes, vector<Coach> globalCoaches)
                 Team::SetAthletes(athleteList);
             }
         }
-        else if (atoi(userInput.c_str()) == 5) {
+        else if (strcmp(userInput.c_str(), "exit") == 1) {
             break;
         }
     }
+}
+
+void Team::PrintInfo() {
+    string userInput;
+    cout << "--------------------" << endl;
+    cout << "Team: " << Team::GetName() << endl;
+    cout << "Location: " << Team::GetLocation() << endl;
+    cout << "Coach: " << Team::GetCoach().GetName() << endl;
+    cout << "Athletes: " << endl;
+    vector<Athlete> athleteList = Team::GetAthletes();
+    for (int i = 0; i < athleteList.size(); i++) {
+        cout << "\t" << i + 1 << ". " << athleteList[i].GetName() << endl;
+    }
+    cout << "--------------------" << endl;
+    cout << "Type 'exit' to Exit" << endl;
+    cout << "--------------------" << endl;
+
+    cin >> userInput;
 }
 
 

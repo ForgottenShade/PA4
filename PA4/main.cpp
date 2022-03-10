@@ -27,7 +27,6 @@ int GetAthleteNumber(string athleteType) {
 int main() {
 	string userInput;
 	bool mainMenu = true;
-	
 
 	while (true) {
 		if (mainMenu) {
@@ -39,6 +38,11 @@ int main() {
 			cout << "4. Manage Athletes" << endl;
 			cout << "5. Manage Coaches" << endl;
 			cout << "6. Manage Teams" << endl;
+			cout << "7. Show Athletes" << endl;
+			cout << "8. Show Coaches" << endl;
+			cout << "9. Show Teams" << endl;
+			cout << "--------------------" << endl;
+			cout << "Type 'quit' to Exit" << endl;
 			cout << "--------------------" << endl;
 		}
 
@@ -117,11 +121,11 @@ int main() {
 					cout << i + 1 << ". " << athleteList[i].GetName() << endl;
 				}
 				cout << "--------------------" << endl;
-				cout << "Type 'Exit' to Exit" << endl;
+				cout << "Type 'exit' to Exit" << endl;
 				cout << "--------------------" << endl;
 				cin >> userInput;
 
-				if (strcmp(userInput.c_str(), "Exit") != 0) {
+				if (strcmp(userInput.c_str(), "exit") != 0) {
 					athleteList[atoi(userInput.c_str()) - 1].EditAthlete();
 				}
 			}
@@ -132,11 +136,11 @@ int main() {
 					cout << i+1 << ". " << coachList[i].GetName() << endl;
 				}
 				cout << "--------------------" << endl;
-				cout << "Type 'Exit' to Exit" << endl;
+				cout << "Type 'exit' to Exit" << endl;
 				cout << "--------------------" << endl;
 				cin >> userInput;
 				
-				if (strcmp(userInput.c_str(), "Exit") != 0) {
+				if (strcmp(userInput.c_str(), "exit") != 0) {
 					coachList[atoi(userInput.c_str()) - 1].EditCoach();
 				}
 			}
@@ -147,13 +151,67 @@ int main() {
 					cout << i+1 << ". " << teamList[i].GetName() << endl;
 				}
 				cout << "--------------------" << endl;
-				cout << "Type 'Exit' to Exit" << endl;
+				cout << "Type 'exit' to exit" << endl;
 				cout << "--------------------" << endl;
 				cin >> userInput;
 				
-				if (strcmp(userInput.c_str(), "Exit") != 0) {
+				if (strcmp(userInput.c_str(), "exit") != 0) {
 					teamList[atoi(userInput.c_str()) - 1].EditTeam(athleteList, coachList);
 				}
+			}
+			else if (atoi(userInput.c_str()) == 7) {
+				while (true) {
+					cout << "Input the number of the athlete you want to see." << endl;
+					cout << "--------------------" << endl;
+					for (int i = 0; i < athleteList.size(); i++) {
+						cout << i + 1 << ". " << athleteList[i].GetName() << endl;
+					}
+					cout << "--------------------" << endl;
+					cout << "Type 'exit' to Exit" << endl;
+					cout << "--------------------" << endl;
+					cin >> userInput;
+
+					if (strcmp(userInput.c_str(), "exit") != 0) {
+						athleteList[atoi(userInput.c_str()) - 1].PrintInfo();
+					}
+				}
+			}
+			else if (atoi(userInput.c_str()) == 8) {
+				while (true) {
+					cout << "Input the number of the coach you want to see." << endl;
+					cout << "--------------------" << endl;
+					for (int i = 0; i < coachList.size(); i++) {
+						cout << i + 1 << ". " << coachList[i].GetName() << endl;
+					}
+					cout << "--------------------" << endl;
+					cout << "Type 'exit' to Exit" << endl;
+					cout << "--------------------" << endl;
+					cin >> userInput;
+
+					if (strcmp(userInput.c_str(), "exit") != 0) {
+						coachList[atoi(userInput.c_str()) - 1].PrintInfo();
+					}
+				}
+			}
+			else if (atoi(userInput.c_str()) == 9) {
+				while (true) {
+					cout << "Input the number of the team you want to see." << endl;
+					cout << "--------------------" << endl;
+					for (int i = 0; i < teamList.size(); i++) {
+						cout << i + 1 << ". " << teamList[i].GetName() << endl;
+					}
+					cout << "--------------------" << endl;
+					cout << "Type 'exit' to Exit" << endl;
+					cout << "--------------------" << endl;
+					cin >> userInput;
+
+					if (strcmp(userInput.c_str(), "exit") != 0) {
+						teamList[atoi(userInput.c_str()) - 1].PrintInfo();
+					}
+				}
+			}
+			else if (strcmp(userInput.c_str(), "quit") == 1) {
+				break;
 			}
 		}
 	}

@@ -49,7 +49,7 @@ void Coach::EditCoach() {
             cin >> userInput;
             Coach::SetAge(atoi(userInput.c_str()));
         }
-        else if (strcmp(userInput.c_str(), "exit") == 1) {
+        else if (strcmp(userInput.c_str(), "exit") == 0) {
             break;
         }
     }

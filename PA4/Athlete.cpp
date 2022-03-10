@@ -13,7 +13,7 @@ private:
     int Height;
     int Weight;
     string AthleteType;
-    vector<tuple<string, string>> Stats;
+    vector<string> Stats;
 public:
     Athlete(int number, string athleteType);
     Athlete();
@@ -24,13 +24,13 @@ public:
     void SetWeight(int weight);
     void SetName(string name);
     void SetAge(int age);
-    void SetStats(vector<tuple<string, string>>);
+    void SetStats(vector<string>);
 
     string GetName();
     int GetAge();
     int GetHeight();
     int GetWeight();
-    vector<tuple<string, string>> GetStats();
+    vector<string> GetStats();
     
     //friend bool operator== (const Athlete&, const Athlete&);
 };
@@ -40,7 +40,6 @@ Athlete::Athlete(int number, string athleteType):Person(){
     Weight = rand() % 50 + 100;
     AthleteType = athleteType;
     Athlete::SetName(athleteType + " " + to_string(number));
-    Athlete::SetStats(vector<tuple<string, string>>());
 }
 
 Athlete::Athlete():Person() {}
@@ -83,7 +82,7 @@ void Athlete::EditAthlete(){
         }
         else if (atoi(userInput.c_str()) == 5) {
             while (true){
-                vector<tuple<string, string>> currentStats = Athlete::GetStats();
+                vector<string> currentStats = Athlete::GetStats();
                 cout << "Manage Stats" << endl;
                 cout << "--------------------" << endl;
                 cout << "1. View Stats" << endl;
@@ -98,7 +97,7 @@ void Athlete::EditAthlete(){
                     cout << "View Stats" << endl;
                     cout << "--------------------" << endl;
                     for (int i = 0; i < currentStats.size(); i++) {
-                        cout << i + 1 << ". " << get<0>(currentStats[i]) << " : " << get<1>(currentStats[i]) << endl;
+                        cout << i + 1 << ". " << currentStats[i] << endl;
                     }
                     cout << "--------------------" << endl;
                     cout << "Type 'exit' to Exit" << endl;
@@ -115,7 +114,7 @@ void Athlete::EditAthlete(){
                     cin >> userInput;
                     second = userInput;
 
-                    tuple<string, string> newStat = { first, second };
+                    string newStat = first + ": " + second;
                     currentStats.push_back(newStat);
                     Athlete::SetStats(currentStats);
                 }
@@ -123,7 +122,7 @@ void Athlete::EditAthlete(){
                     cout << "Select a stat to remove" << endl;
                     cout << "--------------------" << endl;
                     for (int i = 0; i < currentStats.size(); i++) {
-                        cout << i + 1 << ". " << get<0>(currentStats[i]) << " : " << get<1>(currentStats[i]) << endl;
+                        cout << i + 1 << ". " << currentStats[i] << endl;
                     }
                     cout << "--------------------" << endl;
                     cout << "Type 'exit' to Exit" << endl;
@@ -135,9 +134,12 @@ void Athlete::EditAthlete(){
                         Athlete::SetStats(currentStats);
                     }
                 }
+                else if (strcmp(userInput.c_str(), "exit") == 0) {
+                    break;
+                }
             }
         }
-        else if (strcmp(userInput.c_str(), "exit") == 1) {
+        else if (strcmp(userInput.c_str(), "exit") == 0) {
             break;
         }
     }
@@ -146,7 +148,7 @@ void Athlete::EditAthlete(){
 
 void Athlete::PrintInfo() {
     string userInput;
-    vector<tuple<string, string>> stats = Athlete::GetStats();
+    vector<string> stats = Athlete::GetStats();
     cout << "--------------------" << endl;
     cout << "Name: " << Athlete::GetName() << endl;
     cout << "Age: " << Athlete::GetAge() << endl;
@@ -154,7 +156,7 @@ void Athlete::PrintInfo() {
     cout << "Height: " << Athlete::GetHeight() << endl;
     cout << "Stats: " << endl;
     for (int i = 0; i < stats.size(); i++) {
-        cout << "\t" << get<0>(stats[i]) << ": " << get<1>(stats[i]) << endl;
+        cout << "\t" << stats[i] << endl;
     }
     cout << "--------------------" << endl;
     cout << "Type 'exit' to Exit" << endl;
@@ -187,7 +189,7 @@ void Athlete::SetWeight(int weight){
     Weight = weight;
 }
 
-void Athlete::SetStats(vector<tuple<string, string>> stats) {
+void Athlete::SetStats(vector<string> stats) {
     Stats = stats;
 }
 
@@ -199,7 +201,7 @@ int Athlete::GetWeight(){
     return Weight;
 }
 
-vector<tuple<string, string>> Athlete::GetStats() {
+vector<string> Athlete::GetStats() {
     return Stats;
 }
 

@@ -13,7 +13,7 @@ class Athlete:public Person{
 private:
 	int Height;
 	int Weight;
-	vector<tuple<string, string>> Stats;
+	vector<string> Stats;
 public:
 	Athlete(int, string);
 	Athlete();
@@ -24,14 +24,14 @@ public:
 	int GetWeight();
 	string GetName();
 	int GetAge();
-	vector<tuple<string, string>> GetStats();
+	vector<string> GetStats();
 
 
 	void SetName(string);
 	void SetAge(int);
 	void SetHeight(int);
 	void SetWeight(int); 
-	void SetStats(vector<tuple<string, string>>);
+	void SetStats(vector<string>);
 
 	//friend bool operator== (const Athlete&, const Athlete&);
 };

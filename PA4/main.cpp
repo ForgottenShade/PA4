@@ -174,6 +174,9 @@ int main() {
 					if (strcmp(userInput.c_str(), "exit") != 0) {
 						athleteList[atoi(userInput.c_str()) - 1].PrintInfo();
 					}
+					else {
+						break;
+					}
 				}
 			}
 			else if (atoi(userInput.c_str()) == 8) {
@@ -191,6 +194,9 @@ int main() {
 					if (strcmp(userInput.c_str(), "exit") != 0) {
 						coachList[atoi(userInput.c_str()) - 1].PrintInfo();
 					}
+					else {
+						break;
+					}
 				}
 			}
 			else if (atoi(userInput.c_str()) == 9) {
@@ -207,6 +213,9 @@ int main() {
 
 					if (strcmp(userInput.c_str(), "exit") != 0) {
 						teamList[atoi(userInput.c_str()) - 1].PrintInfo();
+					}
+					else {
+						break;
 					}
 				}
 			}

@@ -2,6 +2,9 @@
 #define _ATHLETE_
 
 #include<string>
+#include<tuple>
+#include<vector>
+#include<cstring>
 #include"Person.h"
 
 using namespace std;

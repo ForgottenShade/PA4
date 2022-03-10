@@ -1,6 +1,7 @@
 #include "Person.h"
 
 #include<string>
+#include<cstring>
 
 using namespace std;
 // Template for Date?? or just some datetime import? 

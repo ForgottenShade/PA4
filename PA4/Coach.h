@@ -2,6 +2,7 @@
 #define _COACH_
 
 #include<string>
+#include<cstring>
 #include "Person.h"
 
 using namespace std; 

@@ -51,8 +51,9 @@ void Team::EditTeam(vector<Athlete> globalAthletes, vector<Coach> globalCoaches)
         cout << "2. Location -- " << Team::GetLocation() << endl;
         cout << "3. Coach -- " << Team::GetCoach().GetName() << endl;
         cout << "4. Manage Athletes" << endl;
-        cout << "5. Exit Team Configuration" << endl;
-        cout << "--------------------" << endl << endl;
+        cout << "--------------------" << endl;
+        cout << "Type 'exit' to Exit" << endl;
+        cout << "--------------------" << endl;
         cin >> userInput;
 
         if (atoi(userInput.c_str()) == 1) {
@@ -129,7 +130,7 @@ void Team::EditTeam(vector<Athlete> globalAthletes, vector<Coach> globalCoaches)
                 Team::SetAthletes(athleteList);
             }
         }
-        else if (strcmp(userInput.c_str(), "exit") == 1) {
+        else if (strcmp(userInput.c_str(), "exit") == 0) {
             break;
         }
     }

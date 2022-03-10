@@ -219,7 +219,7 @@ int main() {
 					}
 				}
 			}
-			else if (strcmp(userInput.c_str(), "quit") == 1) {
+			else if (strcmp(userInput.c_str(), "quit") == 0) {
 				break;
 			}
 		}
